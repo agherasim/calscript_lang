@@ -7,5 +7,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: Clone repo
         uses: actions/checkout@v1.1.0
+      
+      - name: Build lexer and parser
+        uses: docker://petervaczi/antlr:latest
+        run: |
+          cd ${GITHUB_WORKSPACE}/src/grammar
+          make
