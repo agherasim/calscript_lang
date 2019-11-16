@@ -11,6 +11,4 @@ jobs:
         uses: actions/checkout@v1.1.0
       
       - name: Build lexer and parser
-        uses: ./.github/actions/build-action@v1      
-        with:
-          args: '-f ${{  }}'
+        uses: ./.github/actions/build-action@v1     
