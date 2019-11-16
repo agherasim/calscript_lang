@@ -7,7 +7,7 @@ all: clean build
 
 .PHONY: build
 build:
-		$(ANTLR_EXEC) -o ../../target/$(PACKAGE_NAME) -package $(PACKAGE_NAME) -Dlanguage=$(TARGET_LANG) $(SOURCE_FILE)
+		$(ANTLR_EXEC) -o ../ -package $(PACKAGE_NAME) -Dlanguage=$(TARGET_LANG) $(SOURCE_FILE)
 
 .PHONY: clean
 clean:
