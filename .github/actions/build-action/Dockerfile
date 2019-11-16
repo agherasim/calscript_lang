@@ -9,7 +9,7 @@ RUN apk update && \
 
 ADD https://www.antlr.org/download/antlr-${ANTLR_VERSION}-complete.jar /
 RUN chmod +r /antlr-${ANTLR_VERSION}-complete.jar && \
-    ln -s /antlr-${ANTLR_VERSION}-complete.jar /usr/bin/antlr && \
+    echo "java -jar /antlr-${ANTLR_VERSION}-complete.jar" > /usr/bin/antlr && \
     chmod +x /usr/bin/antlr
 
 COPY entrypoint.sh /entrypoint.sh
