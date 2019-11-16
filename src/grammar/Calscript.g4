@@ -1,6 +1,6 @@
 // CalScript.g4
 // $antlr-format on
-grammar calscript;
+grammar Calscript;
 
 import Date;
 
