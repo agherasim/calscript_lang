@@ -5,13 +5,14 @@ jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
-
+    container: 
+      image: petervaczi/antlr:latest
+    
     steps:
       - name: Clone repo
         uses: actions/checkout@v1.1.0
       
       - name: Build lexer and parser
-        uses: docker://petervaczi/antlr:latest
         run: |
           cd ${GITHUB_WORKSPACE}/src/grammar
           make
