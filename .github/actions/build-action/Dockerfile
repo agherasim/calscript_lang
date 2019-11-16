@@ -10,4 +10,6 @@ RUN apk update && \
 ADD https://www.antlr.org/download/antlr-${ANTLR_VERSION}-complete.jar /
 RUN chmod +r /antlr-${ANTLR_VERSION}-complete.jar
 
-ENTRYPOINT [ "make" ]
+COPY entrypoint.sh /entrypoint.sh
+
+ENTRYPOINT [ "/entrypoint.sh" ]

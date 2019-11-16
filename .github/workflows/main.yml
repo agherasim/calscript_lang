@@ -10,8 +10,7 @@ jobs:
       - name: Clone repo
         uses: actions/checkout@v1.1.0
       
-      - uses: ./
       - name: Build lexer and parser
-        uses: actions/build-action@v1      
+        uses: ./.github/actions/build-action@v1      
         with:
-          args: "-f "
+          args: '-f ${{  }}'
