@@ -12,5 +12,6 @@ jobs:
       
       - name: Build lexer and parser
         uses: actions/build-action@v1
+      - uses: ./
         with:
           args: "-f "
