@@ -1,8 +1,8 @@
 // Date.g4
 // $antlr-format on
-grammar Date;
+grammar date;
 
-import CommonLexer;
+import common_lexer;
 
 // Relative Dates
 DAY: D A Y S? | D;

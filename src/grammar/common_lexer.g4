@@ -1,4 +1,4 @@
-lexer grammar CommonLexer;
+lexer grammar common_lexer;
 
 A: [Aa];
 B: [Bb];
