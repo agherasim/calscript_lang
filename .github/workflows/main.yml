@@ -1,4 +1,4 @@
-name: Build calscript_lang for go
+name: Main workflow
 on: [push]
 
 jobs:

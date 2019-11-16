@@ -1,0 +1,6 @@
+name: 'Build'
+description: 'Build calscript_lang parser and lexer for golang'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  
