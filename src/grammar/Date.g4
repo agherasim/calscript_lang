@@ -5,7 +5,6 @@ grammar Date;
 import CommonLexer;
 
 // Relative Dates
-DATE_TIME_UNIT: (DAY|WEEK|MONTH|YEAR|HOUR|MINUTE|SECOND);
 DAY: D A Y S? | D;
 WEEK: W E E K S? | W;
 MONTH: M O N T H S? | M;
@@ -15,10 +14,9 @@ MINUTE: M I N U T E S? | M I N;
 SECOND: S E C O N D S? | S E C;
 
 // Date Literals
-DATE_LITERAL: (YESTERDAY | NOW | TODAY | TOMORROW);
 YESTERDAY: Y E S T E R D A Y;
 NOW: N O W;
-TOMORROW: T O M M O R O W;
+TOMORROW: T O M O R R O W;
 TODAY: T O D A Y;
 
 JANUARY: J A N U A R Y | J A N;
@@ -34,13 +32,9 @@ OCTOBER: O C T O B E R | O C T;
 NOVEMBER: N O V E M B E R | N O V;
 DECEMBER: D E C E M B E R | D E C;
 
-FOUR_DIGIT: UNSIGNED_INT UNSIGNED_INT UNSIGNED_INT UNSIGNED_INT;
-TWO_DIGIT_MONTH: '0'?'1'..'9'|'1'('0'..'2');
-TWO_DIGIT_DAY: '0'?'1'..'9'|('1'..'2')('0'..'9')|'3'('0'..'1');
-
 date
-  : formal_date
-  | natural_date
+  : natural_date
+  | formal_date
   ;
 
 formal_date_time
@@ -49,38 +43,38 @@ formal_date_time
 
 formal_date
   : year_month_day
-  | month_day_year
-  | day_month_year
-  | day_month
-  | month_year
+  // | month_day_year
+  // | day_month_year
+  // | day_month
+  // | month_year
   ;
 
 year_month_day
   : year date_separator? month_day
   ;
 
-month_day_year
-  : month_day date_separator? year
-  ;
+// month_day_year
+//   : month_day date_separator? year
+//   ;
 
-day_month_year
-  : day_month date_separator? year
-  ;
+// day_month_year
+//   : day_month date_separator? year
+//   ;
 
-day_month
-  : day_of_month date_separator? month
-  ;
+// day_month
+//   : day_of_month date_separator? month
+//   ;
 
 month_day
   : month date_separator? day_of_month
   ;
 
-month_year
-  : month date_separator? year
-  ;
+// month_year
+//   : month date_separator? year
+//   ;
 
 year
-  : FOUR_DIGIT
+  : UNSIGNED_INT+
   ;
 
 month
@@ -89,15 +83,16 @@ month
   ;
 
 vocal_month
-  : JANUARY | FEBRUARY
+  : JANUARY | FEBRUARY | MARCH | APRIL | MAY | JUNE | JULY | AUGUST 
+  | SEPTEMBER | OCTOBER | NOVEMBER | DECEMBER
   ;
 
 numeric_month
-  : TWO_DIGIT_MONTH
+  : UNSIGNED_INT+
   ;
 
 day_of_month
-  : TWO_DIGIT_DAY
+  : UNSIGNED_INT+
   ;
 
 date_separator
@@ -119,5 +114,8 @@ time
 //   ;
 
 natural_date
-  : DATE_LITERAL 
+  : YESTERDAY
+  | NOW
+  | TOMORROW
+  | TODAY
   ;

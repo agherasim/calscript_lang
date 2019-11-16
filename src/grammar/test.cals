@@ -1,0 +1,29 @@
+// meta comment below
+// @DATE_FORMAT: Y/m/d
+
+calscript test_script
+
+on 2019/12/06 "gina and sophie come over"
+
+starting 2019/11/12
+    for 10 weeks every 8h 
+    "take pill x2" /* comment should be skipped */
+    with: andrei, gina, sophie 
+    at: "Berlin Karlshorst"
+
+starting 2020/Jan/01
+    for 13 months every 32 hours "take pill x4"
+
+starting now
+    for 4 days every 8h "take pill x2"
+
+then
+    for 2 days every 12h "take pill x2"
+
+// @todo: fix tomorrow and min tokens
+// btw, that above is a comment and it's skipped
+starting tomorrow
+    for 4 days every 8 min "take **pill** x5"
+
+starting today
+    until 2019/11/30 every 90 min "take pill x3"

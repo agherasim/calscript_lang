@@ -34,13 +34,13 @@ DASH: '-';
 DOT: '.';
 
 // Complex types
-IDENTIFIER: LETTER (LETTER | DIGIT)+; 
+IDENTIFIER: LETTER (LETTER | DIGIT | '_')+; 
+STRING: '"' ( '\\"' | . )*? '"';
 
 // Base types
 UNSIGNED_INT: DIGIT+; 
 SIGNED_INT: SIGN DIGIT+;
 FLOAT: SIGN? DIGIT+ ('.' DIGIT+);
-
 
 fragment LETTER: UCLETTER | LCLETTER;
 fragment LCLETTER: [a-z];
